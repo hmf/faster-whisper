@@ -13,3 +13,7 @@ venv/
 # Ignore IDE, Editor Files
 .idea/
 .vscode/
+
+faster_whisper.egg-info
+.github
+.venv
