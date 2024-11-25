@@ -11,8 +11,7 @@ model_size = "large-v3"
 # Same failed
 # model = WhisperModel(model_size, device="cuda")
 # Ok
-# model = WhisperModel(model_size, device="cuda", compute_type="int8")
-model = WhisperModel(model_size, device="cuda")
+model = WhisperModel(model_size, device="cuda", compute_type="int8")
 
 # or run on GPU with INT8
 # Failed
@@ -24,8 +23,8 @@ model = WhisperModel(model_size, device="cuda")
 # original segments, info = model.transcribe("audio.mp3", beam_size=5)
 # sample = "./tests/data/hotwords.mp3"
 # sample = "./tests/data/jfk.flac"
-sample = "./tests/data/multilingual.mp3"
-# sample = "./tests/data/physicsworks.wav" # longest processing
+# sample = "./tests/data/multilingual.mp3"
+sample = "./tests/data/physicsworks.wav" # longest processing
 # sample = "./tests/data/stereo_diarization.wav"
 segments, info = model.transcribe(sample, beam_size=5)
 

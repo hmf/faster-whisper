@@ -455,6 +455,9 @@ https://github.com/SYSTRAN/faster-whisper/issues/42#issuecomment-1681736015
 
 int8 should work on the P40 which has Compute Capability 6.1."
 
+https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities
+
+
 ----------------------
 
 ssh ubuntu@10.61.14.231
