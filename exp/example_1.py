@@ -11,6 +11,7 @@ model_size = "large-v3"
 # Same failed
 # model = WhisperModel(model_size, device="cuda")
 # Ok
+# but: https://github.com/SYSTRAN/faster-whisper/discussions/1178
 model = WhisperModel(model_size, device="cuda", compute_type="int8")
 
 # or run on GPU with INT8
