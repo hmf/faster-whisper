@@ -1,13 +1,26 @@
 
 <!-- cSpell:ignore SETUPTOOLS, pyproject -->
 
+# Python Virtual Environment
+
 1. Fork public repository (only main branch)
 1. Clone the forked repository locally
 1. Create new branch ("vanilla")
 1. Create or use existing `requirements.txt`
    1. You cn select one or more files
    1. Select all of them
-1. Shift-Ctrl-P "Python" -> "Python: Create Environment"
+1. Shift-Ctrl-P "Python" -> "Python: Create Environment" -> Venv -> usr/bun/python3
+1. select the `requirements.txt`
+1. Press "ok" top continue
+1. Press the "Show logs" button
+
+Once installed make sure the virtual environment is active:
+
+```shell
+(.venv) hmf@gandalf:/mnt/ssd2/hmf/VSCodeProjects/faster-whisper
+```
+
+# Pip
 
 [pip install a local git repository](https://stackoverflow.com/questions/14159482/pip-install-a-local-git-repository)
 
