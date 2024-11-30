@@ -1,6 +1,10 @@
 from faster_whisper import WhisperModel
 
-# Distilled model + word time stamps (not segments)
+# Distilled model + word time stamps (not segments) + VAD filter
+# VAD - Voice Activity Detector
+# https://github.com/snakers4/silero-vad
+# No time-stamp differences detected
+
 
 # https://huggingface.co/distil-whisper/distil-large-v3
 # " It [is] the knowledge distilled version of OpenAI's Whisper large-v3, the latest and most performant Whisper model to date."
@@ -29,7 +33,11 @@ sample = "./tests/data/physicsworks.wav" # longest processing
 # original segments, info = model.transcribe("audio.mp3", beam_size=5, language="en", condition_on_previous_text=False)
 # Ok
 # segments, info = model.transcribe(sample, beam_size=5, language="en", condition_on_previous_text=False)
-segments, info = model.transcribe(sample, beam_size=5, condition_on_previous_text=False, word_timestamps=True)
+segments, info = model.transcribe(
+    sample, beam_size=5, condition_on_previous_text=
+    False, word_timestamps=True, 
+    vad_filter=True, vad_parameters=dict(min_silence_duration_ms=500), # default 2 sec
+    )
 
 print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
