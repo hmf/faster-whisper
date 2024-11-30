@@ -29,9 +29,12 @@ sample = "./tests/data/physicsworks.wav" # longest processing
 # original segments, info = model.transcribe("audio.mp3", beam_size=5, language="en", condition_on_previous_text=False)
 # Ok
 # segments, info = model.transcribe(sample, beam_size=5, language="en", condition_on_previous_text=False)
-segments, info = model.transcribe(sample, beam_size=5, condition_on_previous_text=False)
+segments, info = model.transcribe(sample, beam_size=5, condition_on_previous_text=False, word_timestamps=True)
 
 print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 
 for segment in segments:
-    print("[%.2fs -> %.2fs] %s" % (segment.start, segment.end, segment.text))
+    if segment.words != None:
+        for word in segment.words:
+            print("[%.2fs -> %.2fs] %s" % (word.start, word.end, word.word))
+
