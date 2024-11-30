@@ -2,6 +2,13 @@ from faster_whisper import WhisperModel
 
 model_size = "large-v3"
 
+# Models are large and downloaded to the following cache folder
+# ls -lh /home/hmf/.cache/huggingface/hub/*/snapshots/*
+# ls -lh /home/hmf/.cache/huggingface/hub/*/blobs/*
+
+# Available models
+# https://github.com/SYSTRAN/faster-whisper/blob/97a4785fa13d067c300f8b6e40c4381ad0381c02/faster_whisper/utils.py#L12
+
 # Run on GPU with FP16
 # Failed
 # model = WhisperModel(model_size, device="cuda", compute_type="float16")
@@ -12,7 +19,7 @@ model_size = "large-v3"
 # model = WhisperModel(model_size, device="cuda")
 # Ok
 # but: https://github.com/SYSTRAN/faster-whisper/discussions/1178
-model = WhisperModel(model_size, device="cuda", compute_type="int8")
+model = WhisperModel(model_size, device="cuda", compute_type="int8", download_root="./models")
 
 # or run on GPU with INT8
 # Failed

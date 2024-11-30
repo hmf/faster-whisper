@@ -17,3 +17,5 @@ venv/
 faster_whisper.egg-info
 .github
 .venv
+
+models
