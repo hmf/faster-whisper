@@ -19,6 +19,7 @@ model_size = "large-v3"
 # model = WhisperModel(model_size, device="cuda")
 # Ok
 # but: https://github.com/SYSTRAN/faster-whisper/discussions/1178
+# model = WhisperModel(model_size, device="cuda", compute_type="int8", download_root="./models")
 model = WhisperModel(model_size, device="cuda", compute_type="int8", download_root="./models")
 
 # or run on GPU with INT8
@@ -34,7 +35,15 @@ model = WhisperModel(model_size, device="cuda", compute_type="int8", download_ro
 # sample = "./tests/data/multilingual.mp3"
 sample = "./tests/data/physicsworks.wav" # longest processing
 # sample = "./tests/data/stereo_diarization.wav"
+print("Transcribing....")
+# GPU: Translates to NL
 segments, info = model.transcribe(sample, beam_size=5)
+# GPU: Force EN
+# segments, info = model.transcribe(sample, beam_size=5, language= 'en')
+# GPU: EN output but fail due to OOM
+# segments, info = model.transcribe(sample, beam_size=8)
+# GPU: NL output but fail due to OOM
+# segments, info = model.transcribe(sample, beam_size=6)
 
 print("Detected language '%s' with probability %f" % (info.language, info.language_probability))
 

@@ -1,5 +1,7 @@
 from faster_whisper import WhisperModel, BatchedInferencePipeline
 
+# Batched mode
+
 # Models are large and downloaded to the following cache folder
 # ls -lh /home/hmf/.cache/huggingface/hub/*/snapshots/*
 # ls -lh /home/hmf/.cache/huggingface/hub/*/blobs/*
